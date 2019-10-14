@@ -1,15 +1,20 @@
 {
   "streams": [
     {
-      "title": "ff",
-      "description": "ff",
+      "title": "Hurdur",
+      "description": "Meow xD",
       "id": 1
     },
     {
       "title": "Something",
-      "description": "This is Something.",
-      "userId": "101205805432795598259",
+      "description": "This is Something",
       "id": 2
+    },
+    {
+      "title": "Let me try out",
+      "description": "Does this work?!",
+      "userId": "101205805432795598259",
+      "id": 3
     }
   ]
 }
