@@ -1,4 +1,5 @@
 import streams from '../apis/streams';
+import history from '../history';
 import {
 	SIGN_IN,
 	SIGN_OUT,
@@ -22,9 +23,11 @@ const signOut = () => {
 	};
 };
 
-const createStream = (formValues) => async (dispatch) => {
-	const { data } = await streams.post('/streams', formValues);
+const createStream = (formValues) => async (dispatch, getState) => {
+	const { userId } = getState().auth;
+	const { data } = await streams.post('/streams', { ...formValues, userId });
 	dispatch({ type: CREATE_STREAM, payload: data });
+	history.push('/');
 };
 
 const fetchStreams = () => async (dispatch) => {
