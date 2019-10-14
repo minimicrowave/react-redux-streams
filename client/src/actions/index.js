@@ -36,17 +36,18 @@ const fetchStreams = () => async (dispatch) => {
 };
 
 const fetchStream = (id) => async (dispatch) => {
-	const { data } = await streams.get(`/stream/${id}`);
+	const { data } = await streams.get(`/streams/${id}`);
 	dispatch({ type: FETCH_STREAM, payload: data });
 };
 
 const editStream = (id, formValues) => async (dispatch) => {
-	const { data } = await streams.put(`/stream/${id}`, formValues);
+	const { data } = await streams.patch(`/streams/${id}`, formValues);
 	dispatch({ type: EDIT_STREAM, payload: data });
+	history.push('/');
 };
 
 const deleteStream = (id) => async (dispatch) => {
-	await streams.delete(`/stream/${id}`);
+	await streams.delete(`/streams/${id}`);
 	dispatch({ type: DELETE_STREAM, payload: id });
 };
 
